@@ -1,35 +1,23 @@
 const data = {
-    medicines: [
-        {
-            _id:'1',
-            name:'Crocin',
-            price:'Rs.100',
-            image:'images/crocin.jpg',
-        },
-        {
-            _id:'2',
-            name:'Benadryl',
-            price:'Rs.120',
-            image:'images/benadryl.jpg',
-        },
-        {
-            _id:'3',
-            name:'Levocitrizin',
-            price:'Rs.110',
-            image:'images/levocitrizin.jpg',
-        },
-        {
-            _id:'4',
-            name:'Volini',
-            price:'Rs200',
-            image:'images/volini.jpg',
-        },
-        {
-            _id:'5',
-            name:'Rantac',
-            price:'Rs.150',
-            image:'images/rantac.jpg',
-        },
-    ]
-}
+  products: [
+    {
+      id: '1',
+      name: 'Azithromycin',
+      price: 270,
+      image: 'https://5.imimg.com/data5/IR/RS/KQ/SELLER-10830397/azithromycin-tablet-500x500.jpg',
+    },
+    {
+      id: '2',
+      name: 'Amoxicillin',
+      price: 70,
+      image: 'https://5.imimg.com/data5/SQ/RX/NX/ANDROID-26747562/1592753671012-jpg-500x500.jpg',
+    },
+    {
+      id: '3',
+      name: 'Crocin',
+      price: 45,
+      image: 'https://5.imimg.com/data5/OC/TY/MY-2/crocin-pain-relief-tablet-500x500.jpg',
+    },
+  ],
+};
 export default data;
