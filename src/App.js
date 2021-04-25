@@ -1,40 +1,48 @@
-import React from "react";
+import Header from './components/Header';
+import Main from './components/Main';
+import Basket from './components/Basket';
 import data from './data';
-
+import { useState } from 'react';
 function App() {
-    return (
-        <div classNameName="grid-container">
-            <header className="row">
-                <div>
-                    <a className="company" href="index.html">Svasthya</a>
-                </div>
-                <div>
-                    <a href="cart.html">Home</a>
-                    <a href="cart.html">Cart</a>
-                    <a href="signin.html">Logout</a>
-                </div>
-            </header>
-            <main>
-                <div>
-                    <div className="row center">
-                        {
-                            data.medicines.map( medicine=> (
-                                <div key={medicine._id} className="card">
-                                <img className="medium" src={medicine.image} alt={medicine.name} />
-                                <div className="card-body">
-                                    <h2>{medicine.name}</h2>
-                                <div className="price">{medicine.price}</div>
-                            </div>
-                        </div>
-                            ))
-                        }
-                        
-                    </div>
-                </div>
-            </main>
-            <footer className="row center">All right reserved</footer>
-        </div>
-    )
+  const { products } = data;
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
+  return (
+    <div className="App">
+      <Header countCartItems={cartItems.length}></Header>
+      <div className="row">
+        <Main products={products} onAdd={onAdd}></Main>
+        <Basket
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+        ></Basket>
+      </div>
+    </div>
+  );
 }
 
 export default App;
