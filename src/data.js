@@ -42,6 +42,24 @@ const data = {
       price:150,
       image:'images/rantac.jpg',
     },
+    {
+      id:'8',
+      name:'Disprin',
+      price:90,
+      image:'images/disprin.jpg',
+    },
+    {
+      id:'9',
+      name:'Wincold',
+      price:50,
+      image:'images/wincold.jpg',
+    },
+    {
+      id:'10',
+      name:'Combiflam',
+      price:100,
+      image:'images/combiflam.jpg',
+    },
   ],
 };
 export default data;
